@@ -1,0 +1,24 @@
+<h1>Answers#new</h1>
+<%= form_for @answer do |f| %>
+
+<div class="form-group">
+	<%= f.label :version %>
+	<%= f.text_area :version, class: 'form-control', :rows => 5, :cols => 90 %>
+</div>
+
+<div class="form-group">
+	<%= f.label :test_id %>
+  	<%= f.text_field :test_id, class: 'form-control' %>
+</div>
+
+
+<div class="form-control">
+	<p><%= f.label "value" %></p>
+	<%= f.select :value, ['True','False'] %><br />
+</div>
+
+<div class="form-group">
+<%= f.submit 'Зберегти', class: "btn btn-primary active btn-lg" %>
+<%= link_to 'Назад', :back, class: 'btn btn-outline-secondary'%>
+</div>
+<%end%>

@@ -1,0 +1,8 @@
+<div class="border" >
+
+	<h3><%=test.title%></h3>
+<small>
+			<time><%= test.created_at.to_date.strftime("%d %B, %Y") %></time>
+</small>
+<ul><%= render Answer.where(test_id: test.id)%></ul>
+</div>
