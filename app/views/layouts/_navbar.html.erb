@@ -7,17 +7,30 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/posts">Всі вакансії <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Тест знань з Rspec <span class="sr-only">(current)</span></a>
       </li>
+     
 
+  
     </ul>
  <form class="form-inline">
 
     <% if user_signed_in? %>
-       <%= link_to destroy_user_session_path, method: :delete do %>
-    <button class="btn btn-outline-info" type="button">ВИЙТИ</button>
 
-    
+
+      <% if current_user.role == "Editor" %>
+          <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Create
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/tests/new">Test</a>
+          <a class="dropdown-item" href="/answers/new">Answer</a>
+        </div>
+         </div>
+         <%end%>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+          <button class="btn btn-outline-info" type="button">ВИЙТИ</button>
     <%end%>
     <% else %>
        <%= link_to user_session_path do %>
@@ -32,4 +45,3 @@
   </form>
   </div>
 </nav>
-
