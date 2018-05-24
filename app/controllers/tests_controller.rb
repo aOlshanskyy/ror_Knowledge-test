@@ -5,12 +5,14 @@ class TestsController < ApplicationController
     end
 
     def create
+      if current_user.role == "Editor"  
        @test = Test.new(test_params)
         if @test.save
       	  redirect_to root_path
         else
       	  render 'pages/index'
         end
+      end
     end
 
 	def show

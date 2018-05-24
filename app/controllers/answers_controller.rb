@@ -5,12 +5,14 @@ before_action :set_post, only: [ :show]
     end
 
     def create
+      if current_user.role == "Editor"  
        @answer = Answer.new(answer_params)
         if @answer.save
       	  redirect_to root_path
         else
       	  render 'pages/index'
         end
+      end
     end
 
 	def show

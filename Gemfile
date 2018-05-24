@@ -45,6 +45,9 @@ end
 gem 'devise'
 gem 'bootstrap', '~> 4.1.0'
 gem 'jquery-rails'
+# Gemfile
+gem 'activeadmin'
+
 
 
 group :development do

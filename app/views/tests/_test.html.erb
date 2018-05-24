@@ -1,12 +1,13 @@
-<div class="border" >
-
+<div >
 	<h3><%=test.title%></h3>
 	<small>
 			<time><%= test.created_at.to_date.strftime("%d %B, %Y") %></time>
 	</small>
 	
-	<div >
-		<%= render Answer.where(test_id: test.id)%>
+	<div class="row">
+		<div class="col-md-12">
+			<%= render Answer.where(test_id: test.id)%>
+		</div>
 	</div>
 
 </div>
