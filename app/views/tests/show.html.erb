@@ -1,0 +1,33 @@
+<div>
+<%=form_for @test, url:right_path(@test.id), method: :post do |f|%>
+	<div class="row">
+	<div class="col-md-3">
+	</div>
+		<div class="col-md-6" >
+			<div align="left">
+				<h3><%=f.label @test.id%> <%=f.label @test.title%></h3>
+			</div>
+		<small>
+			<time><%= f.label @test.created_at.to_date.strftime("%d %B, %Y") %></time>
+		</small>
+		</div>
+	<div class="col-md-3">
+	</div>
+	</div>	
+	<div class="row">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-4">
+		<%@answers.each do |p|%>
+				<%=check_box_tag 'answer_ids[]', p.id %>
+				<%=p.version %>
+				<br/>
+		<%end%>
+		</div>
+		<div class="col-md-4">
+		<%=f.submit "Confirm",  class:"btn btn-danger"%>
+		</div>
+	</div>
+	<%end%>
+
+</div>

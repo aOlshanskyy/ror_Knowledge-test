@@ -3,4 +3,9 @@ class PagesController < ApplicationController
   		@tests = Test.all
   		@answers = Answer.all
   end
+
+  def right
+  	
+  end
+
 end

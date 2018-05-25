@@ -1,5 +1,14 @@
   <div align="center">
-  	<div>
-  		 <%=render @tests %>
-  	</div>
+  	<!--<div>
+  		 <%@tests.each do|test|%>
+  		 	<%= link_to test.title, test_path(test.id) %></br>
+  		 <%end%>
+  	</div>-->
+
+<div>
+	
+	<%= link_to test_path(1) do %>
+  			<button type="button" class="btn btn-primary btn-lg btn-block">Tect go !!!</button>
+  	 <%end%>
+</div>
  </div>

@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-before_action :set_post, only: [ :show]
+before_action :set_answer, only: [ :show]
 	def new
   		@answer = Answer.new
     end
@@ -18,9 +18,10 @@ before_action :set_post, only: [ :show]
 	def show
 	end
 
+
 private
 
-	def set_test
+	def set_answer
 		@answer = Answer.find(params[:id])
 	end
 
