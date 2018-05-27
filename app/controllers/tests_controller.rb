@@ -54,10 +54,10 @@ class TestsController < ApplicationController
   def finaly
       @balu = $bal
       if not @balu==0
-        @record = Userparam.create(user_id: current_user.id,score: @balu)
+        @record = Result.create(user_id: current_user.id,score: @balu)
         @record.save
       else
-        @record = Userparam.all.last
+        @record = Result.all.last
       end
       $bal=nil
   end

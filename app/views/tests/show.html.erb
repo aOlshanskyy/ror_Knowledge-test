@@ -30,9 +30,9 @@ Gold: <%=$bal %>
 		<div class="col-md-4">
 		<div class="row">
 			
-			<div class="col-md-4">
+			<div class="col-md-2">
 			</div>
-			<div class="col-md-8" style="text-align: left;">
+			<div class="col-md-10" style="text-align: left;">
 				<%@answers.each do |p|%>
 					<%= check_box_tag 'answer_ids[]', p.id %>
 					<%=f.label p.version %>

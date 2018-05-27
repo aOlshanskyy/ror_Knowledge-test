@@ -1,6 +1,6 @@
-class CreateUserparams < ActiveRecord::Migration[5.1]
+class CreateResults < ActiveRecord::Migration[5.1]
   def change
-    create_table :userparams do |t|
+    create_table :results do |t|
       t.integer :user_id
       t.integer :score
 
