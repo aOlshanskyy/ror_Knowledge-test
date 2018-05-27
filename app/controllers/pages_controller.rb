@@ -5,7 +5,6 @@ class PagesController < ApplicationController
   end
 
   def right
-  	
   end
 
 end

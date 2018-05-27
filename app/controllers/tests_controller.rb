@@ -1,6 +1,8 @@
 class TestsController < ApplicationController
+  before_action :authenticate_user!
  	before_action :set_test, only: [ :show]
-	def new
+  before_action :count, only: [:check, :finaly]
+  def new
   		@test = Test.new
     end
 
@@ -15,11 +17,19 @@ class TestsController < ApplicationController
       end
     end
 
+
+
+
 	def show
+  @tests = Test.all
+  
+    @i=10
     @answers =Answer.where(test_id: @test.id)
+    @i+=20
 	end
 
-  def right
+
+  def check
     @test = Test.find(params[:test_id])
     @select_answers = Answer.find(params[:answer_ids])
     @flag = true
@@ -29,20 +39,40 @@ class TestsController < ApplicationController
         redirect_to root_path
       end
     end
+    @count+=1
     if @flag
       if Test.where(id: @test.id+1).first
+        @bal = @bal + 1
         redirect_to test_path(@test.id+1)
       else 
-        redirect_to root_path
+        redirect_to finaly_path
       end
     end
   end
+
+
+  def finaly
+  end
+
 
 private
 
 	def set_test
 		@test = Test.find(params[:id])
 	end
+
+  def count
+    @bal = 0
+    @res=0
+    @testes = Test.all
+    @testes.each do |test|
+        @res+=10
+
+    end
+    @count=0
+
+  end
+
 
 
     def test_params

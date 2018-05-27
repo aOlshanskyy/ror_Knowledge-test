@@ -2,7 +2,8 @@
 
 <div class="form-group">
   <%= f.label :title %>
-  <%= f.text_area :title, class: 'form-control', :rows => 5, :cols => 100 %>
+  <%= f.text_area :title, :class => "tinymce", :rows => 5, :cols => 100 %>
+  <%= tinymce %><br/>
 </div>
 
 
@@ -13,3 +14,4 @@
 <%= link_to 'Назад', :back, class: 'btn btn-outline-secondary btn-sm'%>
 </div>
 <%end%>
+

@@ -1,3 +1,19 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#testo{
+	background: #6699ff;
+}
+#testo:hover{
+	background: #004d99;
+}
+.q-list-item{
+	border: solid 1px #dddddd;
+	display: inline-block;
+	height: 27px;
+	width: 27px;
+	position: relative;
+	line-height: 27px;
+	margin: 5px 8px 5px 0;
+	text-align: center;
+}

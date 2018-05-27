@@ -1,12 +1,21 @@
 <div>
-<%=form_for @test, url:right_path(@test.id), method: :post do |f|%>
+
+
+<%=form_for @test, url:check_path(@test.id), method: :post do |f|%>
+	<div class="progress">
+  		<div class="progress-bar" role="progressbar" style="width: <%= @i %>%;" aria-valuenow="	85" aria-valuemin="0" aria-valuemax="100"><%= @i %>% 
+  		</div>
+	</div><br/>
 	<div class="row">
-	<div class="col-md-3">
+	<div class="col-md-2">
+	</div>
+	<div class="col-md-1">
+		<h3 style="text-align: right;"><%=f.label @test.id%>)</h3> 
 	</div>
 		<div class="col-md-6" >
-			<div align="left">
-				<h3><%=f.label @test.id%> <%=f.label @test.title%></h3>
-			</div>
+				<div align="left" style="text-align: justify;">
+					<h3>  <%= sanitize @test.title%></h3>
+				</div>
 		<small>
 			<time><%= f.label @test.created_at.to_date.strftime("%d %B, %Y") %></time>
 		</small>
@@ -14,20 +23,58 @@
 	<div class="col-md-3">
 	</div>
 	</div>	
-	<div class="row">
+	<div class="row" style="text-align: center;">
 		<div class="col-md-4">
+			<%= link_to 'Назад', :back, class: 'btn btn-outline-secondary'%>
 		</div>
 		<div class="col-md-4">
-		<%@answers.each do |p|%>
-				<%=check_box_tag 'answer_ids[]', p.id %>
-				<%=p.version %>
-				<br/>
-		<%end%>
+		<div class="row">
+			
+			<div class="col-md-4">
+			</div>
+			<div class="col-md-8" style="text-align: left;">
+				<%@answers.each do |p|%>
+					<%=check_box_tag 'answer_ids[]', p.id %>
+					<%= sanitize p.version %>
+					<br/>
+				<%end%>
+			</div>
 		</div>
+		</div>
+
 		<div class="col-md-4">
-		<%=f.submit "Confirm",  class:"btn btn-danger"%>
+			<%= f.submit "Відповісти",  class:"btn btn-danger" %>
 		</div>
 	</div>
-	<%end%>
-
+	<% @i+=10 %>
+	<%end%>	
+		<%= @i %>
 </div>
+<div align="center">
+	<nav aria-label="..." >
+  	<ul class="pagination pagination-lg">
+    	<li class="page-item"><a class="page-link" href="/tests/1">1</a></li>
+    	<li class="page-item"><a class="page-link" href="/tests/2">2</a></li>
+    	<li class="page-item"><a class="page-link" href="/tests/3">3</a></li>
+    	<li class="page-item"><a class="page-link" href="/tests/4">4</a></li>
+    	<li class="page-item"><a class="page-link" href="/tests/5">5</a></li>
+    	<li class="page-item"><a class="page-link" href="/tests/6">6</a></li>
+    	<li class="page-item"><a class="page-link" href="/tests/7">7</a></li>
+    	<li class="page-item"><a class="page-link" href="#">8</a></li>
+    	<li class="page-item"><a class="page-link" href="#">9</a></li>
+    	<li class="page-item"><a class="page-link" href="#">10</a></li>
+    	<li class="page-item"><a class="page-link" href="#">11</a></li>
+    	<li class="page-item"><a class="page-link" href="#">12</a></li>
+    	<li class="page-item"><a class="page-link" href="#">13</a></li>
+    	<li class="page-item"><a class="page-link" href="#">14</a></li>
+    	<li class="page-item"><a class="page-link" href="#">15</a></li>
+    	<li class="page-item"><a class="page-link" href="#">16</a></li><br/>
+  	</ul>
+  	<ul class="pagination pagination-lg">
+  	   	<li class="page-item"><a class="page-link" href="#">17</a></li>
+    	<li class="page-item"><a class="page-link" href="#">18</a></li>
+    	<li class="page-item"><a class="page-link" href="#">19</a></li>
+    	<li class="page-item"><a class="page-link" href="#">20</a></li>
+  	</ul>
+</nav>
+
