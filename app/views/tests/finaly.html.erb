@@ -1,3 +1,10 @@
 <h1 align="center">ТЕСТ ЗАВЕРШЕНО</h1>
 
-<%= @bal %>
+<%= @balu %>
+<%= @record.user.nickname %><br>
+Ваш результат: <%= @record.score %>
+<hr>
+<% @max_result = Userparam.where(user_id: current_user.id).order(created_at: :DESC).map.max{|rec| rec.score}%>
+<%= @max_result.user.nickname%><br>
+<%= @max_result.score%><br>
+<%= @max_result.created_at.to_date.strftime("%d %B, %Y")%>

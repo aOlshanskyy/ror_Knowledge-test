@@ -2,6 +2,8 @@ class TestsController < ApplicationController
   before_action :authenticate_user!
  	before_action :set_test, only: [ :show]
   before_action :count, only: [:check, :finaly]
+
+   
   def new
   		@test = Test.new
     end
@@ -21,11 +23,8 @@ class TestsController < ApplicationController
 
 
 	def show
-  @tests = Test.all
-  
-    @i=10
+    @tests = Test.all
     @answers =Answer.where(test_id: @test.id)
-    @i+=20
 	end
 
 
@@ -36,22 +35,31 @@ class TestsController < ApplicationController
     @select_answers.each do |answer|
       if(answer.value !="True")
         @flag = false
-        redirect_to root_path
       end
     end
-    @count+=1
+    
     if @flag
+      $bal = $bal + 1
+    end
       if Test.where(id: @test.id+1).first
-        @bal = @bal + 1
+        $i = $i + 10
         redirect_to test_path(@test.id+1)
       else 
         redirect_to finaly_path
       end
-    end
+    
   end
 
 
   def finaly
+      @balu = $bal
+      if not @balu==0
+        @record = Userparam.create(user_id: current_user.id,score: @balu)
+        @record.save
+      else
+        @record = Userparam.all.last
+      end
+      $bal=nil
   end
 
 
@@ -62,14 +70,13 @@ private
 	end
 
   def count
-    @bal = 0
+    @balu = 0
     @res=0
     @testes = Test.all
     @testes.each do |test|
         @res+=10
 
     end
-    @count=0
 
   end
 
