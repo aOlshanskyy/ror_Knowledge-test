@@ -14,3 +14,34 @@
  *= require_self
  */
  @import "bootstrap";
+.main{
+	background-image: url("http://www.nascenia.com/wp-content/uploads/2017/08/FB-image.jpg");
+	background-size: cover;
+    height: 80%;
+    padding-top: 55px;
+    padding-bottom: 36px;
+    color: white;
+    .btn_my{
+        margin-top: 12px;
+        transition: all 300ms;
+        &:hover{
+            background-color: black;
+            color: white;
+        }
+	}
+
+}
+.conteinery{
+	
+	    margin-top: 30px;
+		max-width: 600px!important;
+        width: 100%;
+        /*margin-top: 55px;*/
+        /*background-color: red;*/
+        /*margin-bottom: 60px;*/
+        border: 2px solid white;
+        border-radius: 7px; 
+        padding: 40px;
+        background-color: rgba(0,0,0, 0.5);
+        padding-bottom: 80px; 
+}

@@ -4,6 +4,7 @@ class TestsController < ApplicationController
   before_action :count, only: [:check, :finaly]
 
    
+
   def new
   		@test = Test.new
     end
@@ -19,10 +20,7 @@ class TestsController < ApplicationController
       end
     end
 
-
-
-
-	def show
+  def show
     @tests = Test.all
     @answers =Answer.where(test_id: @test.id)
 	end
@@ -42,13 +40,37 @@ class TestsController < ApplicationController
       $bal = $bal + 1
     end
       if Test.where(id: @test.id+1).first
-        $i = $i + 10
+        $i = $i + 8
         redirect_to test_path(@test.id+1)
       else 
         redirect_to finaly_path
       end
     
   end
+
+  #def checkrand
+#    @test = Test.find(params[:test_id])
+#    @select_answers = Answer.find(params[:answer_ids])
+#    @flag = true
+#    @select_answers.each do |answer|
+##      if(answer.value !="True")
+#        @flag = false
+#      end
+#    end
+#
+#    @id = rand(1..10)
+#    @Number.id = true
+#    if @Number.id 
+#        $i = $i + 8
+#        redirect_to test_path(@Number.id)
+#      else 
+#        @Number.id = false
+#    end
+#
+#    if $i==40
+#      redirect_to finaly_path
+#    end
+#  end
 
 
   def finaly

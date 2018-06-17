@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   devise_for :users
     root to: "pages#index"
 
-    post "test/:test_id/check" ,to: "tests#check", as: "check"   
+    post "test/:test_id/check" ,to: "tests#check", as: "check"
+   # post "test/:test_id/checkrand" ,to: "tests#checkrand", as: "checkrand"   
     get "test/finaly" ,to: "tests#finaly", as: "finaly"   
 
     resources :tests

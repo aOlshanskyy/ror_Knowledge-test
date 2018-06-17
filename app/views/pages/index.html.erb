@@ -4,12 +4,37 @@
   		 	<%= link_to test.title, test_path(test.id) %></br>
   		 <%end%>
   	</div>-->
+<div class="main">
+  <div class="conteinery">
+  
+  
+    <% if !user_signed_in?  %>
+        <h1> Вітаємо вас  на нашому сайті</h1>
+        <div class="alert alert-warning" role="alert">
+            Для того щоб розпочати тест потрібно зареєструватись!
+        </div>
+            <%= link_to new_user_registration_path do %>
+          <button type="button" class="btn btn-primary btn-lg " id="testo" style="text-decoration: none;" >зареєструватись</button>
 
-<div>
-	
-	<%= link_to test_path(1) do %>
-  			<button type="button" class="btn btn-primary btn-lg btn-block" id="testo" style="text-decoration: none;">If you want to go through the test click here !!!!</button>
+      <%end%>
 
-  	 <%end%>
+   <%end%>
+    <% if user_signed_in?  %>
+        <h1> Вітаємо вас <%= current_user.nickname %> на нашому сайті</h1>
+       <% @max_result = Result.where(user_id: current_user.id).order(created_at: :DESC).map.max{|rec| rec.score}%>
+        Максимальний результат: <%= @max_result.score%><br>
+        Рекорд установлено: <%= @max_result.created_at.to_date.strftime("%d %B, %Y")%>
+  <div>
+  
+    <%= link_to test_path(1) do %>
+          <button type="button" class="btn btn-primary btn-lg btn-block" id="testo" style="text-decoration: none;">РОЗПОЧАТИ ТЕСТ !!!!</button>
+
+      <%end%>
+
+
+  </div>
+  <%end%>
+
+</div>
 </div>
  </div>
