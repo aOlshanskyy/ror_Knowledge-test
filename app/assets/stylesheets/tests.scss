@@ -3,6 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #my_navs{
-	align: center;
-	margin-top: 5px;
+	align-items: center;
+	height: 22px;
+	width: 22px;
+	background: #4d4d4d;
+	color: #ffffff;
+}
+#next{
+	background:  #b30000;
+	color: #ffffff;
+	&:hover{
+		background: #ffffff;
+		color:  #b30000;
+	}
 }

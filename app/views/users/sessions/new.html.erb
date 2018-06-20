@@ -1,15 +1,14 @@
-<div class="container">
+<div class="main">
+  <div class="conteinery" style="margin-left: 25%; text-align: center; padding-top: 20px;">
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="field" style="padding-top: 25px;">
+    <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
@@ -24,5 +23,7 @@
   </div>
 <% end %>
 
-<%= render "users/shared/links" %>
+
 </div>
+</div>
+

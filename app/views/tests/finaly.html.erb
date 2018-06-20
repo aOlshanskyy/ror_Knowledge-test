@@ -4,24 +4,34 @@
 <!--<%= @balu %>
 <%= @record.user.nickname %><br>-->
 <div class="progress">
-  <div class="progress-bar bg-success" role="progressbar" style="width: <%= (@record.score * 100) / 20 %>%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"><%= (@record.score * 100) / 12 %>%</div>
-  <div class="progress-bar bg-danger" role="progressbar" style="width: <%= 100 - (@record.score * 100) / 12 %>%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="progress-bar bg-success" role="progressbar" style="width: <%= (@record.score * 100) / 20 %>%" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"><%= (@record.score * 100) / 12 %>%</div>
+  <div class="progress-bar bg-danger" role="progressbar" style="width: <%= 100 - (@record.score * 100) / 12 %>%" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 	
-	<h2>Ваш результат: <%= @record.score %> правильні відповіді із 12</h2>
+	<h2>Ваш результат: <%= @record.score %> правильних відповідей із 12</h2>
 	<hr>
 <div class="row">
 	<div class="col-md-4">
 	</div>
-	<div class="col-md-3">
+	<div class="col-md-4">
+	
 	
 	<% @max_result = Result.where(user_id: current_user.id).order(created_at: :DESC).map.max{|rec| rec.score}%>
 	Каристувач: <%= @max_result.user.nickname%><br><hr>
-	Приєднався: <%= current_user.created_at.to_date.strftime("%d %B, %Y") %><br>
-	Максимальний результат: <%= @max_result.score%><br>
-	Рекорд установлено: <%= @max_result.created_at.to_date.strftime("%d %B, %Y")%>
+	Приєднався: <%= current_user.created_at.to_date.strftime("%d %B, %Y") %>
+	<!--Максимальний результат: <%= @max_result.score%><br>
+	Максимальний результат: <%= @max_res.score%><br>
+	Рекорд установлено: <%= @max_result.created_at.to_date.strftime("%d %B, %Y")%>-->
+	<br>
+	<% @maxscore = Result.where(user_id: current_user.id).map.max { |sco| sco.score  } %>
+	Ваш максимальний результат: <%= @maxscore.score %><br>
+
+
 	</div>
-	<div class="col-md-5">
+	<div class="col-md-4">
+	 <%= link_to root_path do %>
+		<button type="button" class="bg-success-lg" id="login" style="border-radius: 7px; margin-left: 100px;">На головну</button>
+	<% end -%>
 	</div>
 </div>
 </div>

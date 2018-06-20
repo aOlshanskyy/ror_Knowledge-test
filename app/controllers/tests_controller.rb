@@ -82,6 +82,8 @@ class TestsController < ApplicationController
         @record = Result.all.last
       end
       $bal=nil
+      #@maxsc = Result.create(user_id: current_user.id, score: max { |a, b|  score, })
+      @max_res = Result.where(user_id: current_user.id).order(created_at: :DESC).map.max{|rec| rec.score}
   end
 
 

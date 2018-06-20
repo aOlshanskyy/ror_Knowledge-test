@@ -21,9 +21,7 @@
    <%end%>
     <% if user_signed_in?  %>
         <h1> Вітаємо вас <%= current_user.nickname %> на нашому сайті</h1>
-       <% @max_result = Result.where(user_id: current_user.id).order(created_at: :DESC).map.max{|rec| rec.score}%>
-        Максимальний результат: <%= @max_result.score%><br>
-        Рекорд установлено: <%= @max_result.created_at.to_date.strftime("%d %B, %Y")%>
+      
   <div>
   
     <%= link_to test_path(1) do %>

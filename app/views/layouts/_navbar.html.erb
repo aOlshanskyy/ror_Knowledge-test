@@ -35,11 +35,11 @@
          </div>
          <%end%>
           <%= link_to destroy_user_session_path, method: :delete do %>
-          <button class="btn btn-outline-info" type="button">ВИЙТИ</button>
+          <button class="btn btn-outline-info" type="button" id="login">ВИЙТИ</button>
     <%end%>
     <% else %>
        <%= link_to user_session_path do %>
-         <button class="btn btn-outline-info" type="button">ВВІЙТИ</button> 
+         <button class="btn btn-outline-info" type="button" id="login">ВВІЙТИ</button> 
         <%= link_to new_user_registration_path do %>
          <button class="btn btn-sm btn-outline-secondary" type="button">РЕЄСТРАЦІЯ</button>
     <%end%>

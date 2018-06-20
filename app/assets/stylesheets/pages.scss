@@ -18,3 +18,11 @@
 	margin: 5px 8px 5px 0;
 	text-align: center;
 }
+#login{
+	background: #ffffff;
+	color: #29a3a3;
+	&:hover{
+		background: #29a3a3;
+		color: #ffffff;
+	}
+}

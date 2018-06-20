@@ -47,7 +47,7 @@
 		</div>
 
 		<div class="col-md-4">
-			<%= f.submit "Відповісти",  class:"btn btn-danger" %>
+			<%= f.submit "Відповісти",  class:"btn btn-danger", id:'next' %>
 		</div>
 	</div>
 	<%end%>	
@@ -58,7 +58,7 @@
   	<ul class="pagination justify-content-center"">
   		<%Test.all.each do |test|%>
   			<%if test.id==@test.id%>
-  			<li class="page-item disabled"><%= link_to test.id, test_path(test.id) , class:"page-link" %></li>
+  			<li class="page-item disabled"><%= link_to test.id, test_path(test.id) , class:"page-link", id:'my_navs' %></li>
   			<%else%>
   			<li class="page-item"><%= link_to test.id, test_path(test.id), class:"page-link" %></li>
   			<%end%>
