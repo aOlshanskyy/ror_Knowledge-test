@@ -23,8 +23,12 @@
 	Максимальний результат: <%= @max_res.score%><br>
 	Рекорд установлено: <%= @max_result.created_at.to_date.strftime("%d %B, %Y")%>-->
 	<br>
-	<% @maxscore = Result.where(user_id: current_user.id).map.max { |sco| sco.score  } %>
-	Ваш максимальний результат: <%= @maxscore.score %><br>
+	<!--<% @maxscore = Result.where(user_id: current_user.id).map.max { |sco| sco.score  } %>-->
+	<% @maxscore = Result.where(user_id: current_user.id).order(score: :desc) %>
+	<% @teams = Result.all.order(score: :desc) %>
+	Максимальний результат: <%= @teams.maximum(:score) %><br>
+	Ваш максимальний результат: <%= @maxscore.maximum(:score) %><br>
+
 
 
 	</div>
